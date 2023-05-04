@@ -1,0 +1,8 @@
+---
+  - hosts: leafs_DC1
+    gather_facts: no
+    tasks:
+    - name: Create Template
+      template:
+        src: "{{lookup('env','PWD')}}/templates/vlans.j2"
+        dest: "{{lookup('env','PWD')}}/configs/vlans.cfg"

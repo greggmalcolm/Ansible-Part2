@@ -1,0 +1,8 @@
+{# This removes the VLAN database entries #}
+{% for num in range(4004,4008) %}
+no vlan {{num}}
+{% endfor %}
+{# This removes the SVI's #}  
+{% for num in range(4004,4008) %}
+no interface vlan{{num}}
+{% endfor %}

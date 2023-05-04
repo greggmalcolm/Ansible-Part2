@@ -1,0 +1,11 @@
+---
+  - hosts: even_leafs_DC1, even_leafs_DC2
+    gather_facts: no
+    tasks:
+    - name: Create Template
+      template:
+        src: "{{lookup('env','PWD')}}/templates/mlag_even.j2"
+        dest: "{{lookup('env','PWD')}}/configs/mlag_even.cfg"
+    - name: Upload Config
+      eos_config:
+        src: "{{lookup('env','PWD')}}/configs/mlag_even.cfg"
